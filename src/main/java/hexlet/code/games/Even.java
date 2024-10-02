@@ -1,27 +1,21 @@
 package hexlet.code.games;
 
-import hexlet.code.Game;
-import java.util.Random;
+import hexlet.code.utils.Utils;
 
-public class Even implements Game {
-    private final Random random = new Random();
-    private String correctAnswer;
+public class Even {
+    private static String correctAnswer;
 
-    @Override
-    public String getDescription() {
+    public static String getDescription() {
         return "Answer 'yes' if the number is even, otherwise answer 'no'.";
     }
 
-    @Override
-    public String generateQuestion() {
-        int number = random.nextInt(100) + 1;
+    public static String generateQuestion() {
+        int number = Utils.getRandomInt(1, 100);
         correctAnswer = number % 2 == 0 ? "yes" : "no";
-
         return String.valueOf(number);
     }
 
-    @Override
-    public String getCorrectAnswer() {
+    public static String getCorrectAnswer() {
         return correctAnswer;
     }
 }

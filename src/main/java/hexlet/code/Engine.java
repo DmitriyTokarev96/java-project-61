@@ -3,35 +3,27 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static void runGame(Game game) {
-        System.out.println("Welcome to the Brain Games!");
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("May I have your name? ");
-        String userName = scanner.nextLine();
-        System.out.println("Hello, " + userName + "!");
-        System.out.println(game.getDescription());
+    public static void runGame(Class<?> gameClass) {
+        try {
+            String description = (String) gameClass.getMethod("getDescription").invoke(null);
+            System.out.println(description);
 
-        int correctAnswers = 0;
-
-        while (correctAnswers < 3) {
-            String question = game.generateQuestion();
-            String correctAnswer = game.getCorrectAnswer();
-
+            String question = (String) gameClass.getMethod("generateQuestion").invoke(null);
             System.out.println("Question: " + question);
+
+            Scanner scanner = new Scanner(System.in);
             System.out.print("Your answer: ");
             String userAnswer = scanner.nextLine();
 
+            String correctAnswer = (String) gameClass.getMethod("getCorrectAnswer").invoke(null);
             if (userAnswer.equals(correctAnswer)) {
                 System.out.println("Correct!");
-                correctAnswers++;
             } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
-                        + correctAnswer + "'.");
-                System.out.println("Let's try again, " + userName + "!");
-                return;
+                System.out.println("Wrong answer! The correct answer is: " + correctAnswer);
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        System.out.println("Congratulations, " + userName + "!");
     }
 }
+

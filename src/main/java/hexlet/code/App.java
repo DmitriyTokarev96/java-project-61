@@ -27,19 +27,19 @@ public class App {
                 Cli.greet();
                 break;
             case 2:
-                Engine.runGame(new Even());
+                Engine.runGame(Even.class);
                 break;
             case 3:
-                Engine.runGame(new Calc());
+                Engine.runGame(Calc.class);
                 break;
             case 4:
-                Engine.runGame(new GCDGame());
+                Engine.runGame(GCDGame.class);
                 break;
             case 5:
-                Engine.runGame(new ProgressionGame());
+                Engine.runGame(ProgressionGame.class);
                 break;
             case 6:
-                Engine.runGame(new PrimeGame());
+                Engine.runGame(PrimeGame.class);
                 break;
             case 0:
                 System.out.println("Goodbye!");
@@ -50,3 +50,4 @@ public class App {
         }
     }
 }
+

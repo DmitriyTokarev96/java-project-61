@@ -1,39 +1,34 @@
 package hexlet.code.games;
 
-import hexlet.code.Game;
-import java.util.Random;
+import hexlet.code.utils.Utils;
 
-public class ProgressionGame implements Game {
-    private final Random random = new Random();
-    private int hiddenIndex;
-    private int[] progression;
+public class ProgressionGame {
+    private static int hiddenIndex;
+    private static int[] progression;
 
-    @Override
-    public String getDescription() {
+    public static String getDescription() {
         return "What number is missing in the progression?";
     }
 
-    @Override
-    public String generateQuestion() {
-        int length = random.nextInt(6) + 5;
-        int step = random.nextInt(10) + 1;
-        int start = random.nextInt(100);
+    public static String generateQuestion() {
+        int length = 10;
+        int step = Utils.getRandomInt(1, 10);
+        int start = Utils.getRandomInt(1, 50);
 
         progression = new int[length];
         for (int i = 0; i < length; i++) {
             progression[i] = start + i * step;
         }
 
-        hiddenIndex = random.nextInt(length);
+        hiddenIndex = Utils.getRandomInt(0, length - 1);
         return generateProgressionString();
     }
 
-    @Override
-    public String getCorrectAnswer() {
+    public static String getCorrectAnswer() {
         return String.valueOf(progression[hiddenIndex]);
     }
 
-    private String generateProgressionString() {
+    private static String generateProgressionString() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < progression.length; i++) {
             if (i == hiddenIndex) {
