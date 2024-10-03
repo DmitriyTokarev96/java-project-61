@@ -11,9 +11,28 @@ repositories {
 }
 
 application {
-    mainClass = "hexlet.code.App"
+    mainClass.set("hexlet.code.App")
 }
 
-tasks.getByName("run", JavaExec::class) {
+tasks.named<JavaExec>("run") {
     standardInput = System.`in`
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs("app/src/main/java")
+        }
+        resources {
+            srcDirs("app/src/main/resources")
+        }
+    }
+    test {
+        java {
+            srcDirs("app/src/test/java")
+        }
+        resources {
+            srcDirs("app/src/test/resources")
+        }
+    }
 }
