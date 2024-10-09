@@ -1,34 +1,34 @@
 .DEFAULT_GOAL := build-run
 
 setup:
-	./gradlew wrapper --gradle-version 8.5
+	docker-compose run app make setup
 
 clean:
-	./gradlew clean
+	docker-compose run app make clean
 
 build:
-	./gradlew clean build
+	docker-compose run app make build
 
 install:
-	./gradlew clean install
+	docker-compose run app make install
 
 run-dist:
-	./build/install/app/bin/app
+	docker-compose run app make run-dist
 
 run:
-	./gradlew run
+	docker-compose run app make run
 
 test:
-	./gradlew test
+	docker-compose run app make test
 
 report:
-	./gradlew jacocoTestReport
+	docker-compose run app make report
 
 lint:
-	./gradlew checkstyleMain
+	docker-compose run app make lint
 
 check-deps:
-	./gradlew dependencyUpdates -Drevision=release
+	docker-compose run app make check-deps
 
 build-run: build run
 
