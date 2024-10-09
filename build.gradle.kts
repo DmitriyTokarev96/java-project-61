@@ -1,6 +1,11 @@
 plugins {
+    kotlin("jvm") version "1.8.0"
     application
     checkstyle
+}
+
+dependencies {
+    implementation(kotlin("stdlib"))
 }
 
 group = "hexlet.code"
