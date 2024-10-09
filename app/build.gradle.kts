@@ -8,6 +8,11 @@ dependencies {
     implementation(kotlin("stdlib"))
 }
 
+checkstyle {
+    toolVersion = "8.44"
+    configFile = file("config/checkstyle/checkstyle.xml")
+}
+
 group = "hexlet.code"
 version = "1.0-SNAPSHOT"
 
