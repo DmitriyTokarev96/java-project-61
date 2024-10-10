@@ -2,6 +2,7 @@ plugins {
     kotlin("jvm") version "1.8.0"
     application
     checkstyle
+    id("docker.plugin") version "1.0.36"
 }
 
 dependencies {
@@ -27,6 +28,18 @@ application {
 tasks.named<JavaExec>("run") {
     standardInput = System.`in`
 }
+buildscript {
+    repositories {
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
+    }
+    dependencies {
+        classpath("gradle.plugin.com.shainnazarov:gradle-plugins:1.0.36")
+    }
+}
+
+apply(plugin = "docker.plugin")
 
 sourceSets {
     main {
