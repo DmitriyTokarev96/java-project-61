@@ -6,7 +6,7 @@ build/
 *.iml
 
 # Ignore Gradle wrapper JAR file
-gradle/wrapper/gradle-wrapper.jar
+app/gradle/wrapper/gradle-wrapper.jar
 
 # Ignore log files
 *.log
