@@ -8,7 +8,6 @@ import hexlet.code.games.ProgressionGame;
 
 public class Game {
     public static void main(String[] args) {
-        // Вызов методов из класса Calc
         System.out.println(Calc.getDescription());
         String question = Calc.generateQuestion();
         String answer = Calc.getCorrectAnswer();
@@ -16,7 +15,6 @@ public class Game {
         System.out.println("Question: " + question);
         System.out.println("Answer: " + answer);
 
-        // Вызов методов из других игр
         System.out.println(Even.getDescription());
         question = Even.generateQuestion();
         answer = Even.getCorrectAnswer();
