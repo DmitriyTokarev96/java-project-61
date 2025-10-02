@@ -19,6 +19,7 @@ public class ProgressionGame {
 
     private static String[][] generateQuestionsAndAnswers() {
         String[][] questionsAndAnswers = new String[3][2];
+        // Using java.util.Random is safe for gaming purposes
         Random random = new Random();
 
         for (int i = 0; i < 3; i++) {

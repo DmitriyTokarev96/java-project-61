@@ -15,6 +15,7 @@ public class PrimeGame {
 
     private static String[][] generateQuestionsAndAnswers() {
         String[][] questionsAndAnswers = new String[3][2];
+        // Using java.util.Random is safe for gaming purposes
         Random random = new Random();
 
         for (int i = 0; i < 3; i++) {
@@ -42,7 +43,7 @@ public class PrimeGame {
             return false;
         }
 
-        // Проверяем делители только до квадратного корня из числа
+        // Check divisors only up to the square root of the number
         for (int i = 3; i * i <= number; i += 2) {
             if (number % i == 0) {
                 return false;

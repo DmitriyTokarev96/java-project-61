@@ -14,6 +14,7 @@ public class EvenGame {
 
     private static String[][] generateQuestionsAndAnswers() {
         String[][] questionsAndAnswers = new String[3][2];
+        // Using java.util.Random is safe for gaming purposes
         Random random = new Random();
         for (int i = 0; i < 3; i++) {
             int number = random.nextInt(MAX_NUMBER) + 1;

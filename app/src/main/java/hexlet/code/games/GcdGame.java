@@ -15,6 +15,7 @@ public class GcdGame {
 
     private static String[][] generateQuestionsAndAnswers() {
         String[][] questionsAndAnswers = new String[3][2];
+        // Using java.util.Random is safe for gaming purposes
         Random random = new Random();
         for (int i = 0; i < 3; i++) {
             int number1 = random.nextInt(MAX_NUMBER) + MIN_NUMBER;
@@ -28,7 +29,7 @@ public class GcdGame {
     }
 
     private static int gcd(int a, int b) {
-        // Алгоритм Евклида для нахождения НОД
+        // Euclidean algorithm for finding GCD
         while (b != 0) {
             int temp = b;
             b = a % b;
