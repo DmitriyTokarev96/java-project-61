@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC
+    "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+    "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+
+<suppressions>
+    <!-- Suppress all checks for generated code -->
+    <suppress files=".*[\\/]generated[\\/].*" checks=".*"/>
+    
+    <!-- Suppress all checks for test code -->
+    <suppress files=".*[\\/]test[\\/].*" checks=".*"/>
+    
+    <!-- Suppress specific checks for specific files if needed -->
+    <!-- Example: <suppress files="MyClass.java" checks="MagicNumber"/> -->
+</suppressions>
