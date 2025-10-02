@@ -11,34 +11,34 @@ public class ProgressionGame {
     private static final int MAX_START = 50;
     private static final int MIN_STEP = 1;
     private static final int MAX_STEP = 10;
-    
+
     public static void play() {
         String[][] questionsAndAnswers = generateQuestionsAndAnswers();
         Engine.runGame(GAME_DESCRIPTION, questionsAndAnswers);
     }
-    
+
     private static String[][] generateQuestionsAndAnswers() {
         String[][] questionsAndAnswers = new String[3][2];
         Random random = new Random();
-        
+
         for (int i = 0; i < 3; i++) {
             int length = random.nextInt(MAX_LENGTH - MIN_LENGTH + 1) + MIN_LENGTH;
             int start = random.nextInt(MAX_START - MIN_START + 1) + MIN_START;
             int step = random.nextInt(MAX_STEP - MIN_STEP + 1) + MIN_STEP;
             int hiddenIndex = random.nextInt(length);
-            
+
             int[] progression = generateProgression(start, step, length);
             int hiddenNumber = progression[hiddenIndex];
-            
+
             String question = createQuestionString(progression, hiddenIndex);
-            
+
             questionsAndAnswers[i][0] = question;
             questionsAndAnswers[i][1] = String.valueOf(hiddenNumber);
         }
-        
+
         return questionsAndAnswers;
     }
-    
+
     private static int[] generateProgression(int start, int step, int length) {
         int[] progression = new int[length];
         for (int i = 0; i < length; i++) {
@@ -46,22 +46,22 @@ public class ProgressionGame {
         }
         return progression;
     }
-    
+
     private static String createQuestionString(int[] progression, int hiddenIndex) {
         StringBuilder question = new StringBuilder();
-        
+
         for (int i = 0; i < progression.length; i++) {
             if (i == hiddenIndex) {
                 question.append("..");
             } else {
                 question.append(progression[i]);
             }
-            
+
             if (i < progression.length - 1) {
                 question.append(" ");
             }
         }
-        
+
         return question.toString();
     }
 }
