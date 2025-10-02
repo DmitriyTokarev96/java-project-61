@@ -14,10 +14,11 @@ public class CalcGame {
     }
 
     private static String[][] generateQuestionsAndAnswers() {
-        String[][] questionsAndAnswers = new String[3][2];
+        final int questionsCount = Engine.getQuestionsCount();
+        String[][] questionsAndAnswers = new String[questionsCount][2];
         // Using java.util.Random is safe for gaming purposes
         Random random = new Random();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < questionsCount; i++) {
             int number1 = random.nextInt(MAX_NUMBER) + 1;
             int number2 = random.nextInt(MAX_NUMBER) + 1;
             String operator = OPERATORS[random.nextInt(OPERATORS.length)];

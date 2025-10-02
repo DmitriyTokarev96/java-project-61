@@ -5,6 +5,10 @@ import java.util.Scanner;
 public class Engine {
     private static final int QUESTIONS_COUNT = 3;
 
+    public static int getQuestionsCount() {
+        return QUESTIONS_COUNT;
+    }
+
     public static void runGame(String gameDescription, String[][] questionsAndAnswers) {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Welcome to the Brain Games!");
@@ -30,7 +34,8 @@ public class Engine {
                 if (userAnswer.equals(correctAnswer)) {
                     System.out.println("Correct!");
                 } else {
-                    System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
+                    System.out.println("'" + userAnswer + "' is wrong answer ;(. "
+                            + "Correct answer was '" + correctAnswer + "'.");
                     System.out.println("Let's try again, " + name + "!");
                     return;
                 }

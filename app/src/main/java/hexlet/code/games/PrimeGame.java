@@ -14,11 +14,12 @@ public class PrimeGame {
     }
 
     private static String[][] generateQuestionsAndAnswers() {
-        String[][] questionsAndAnswers = new String[3][2];
+        final int questionsCount = Engine.getQuestionsCount();
+        String[][] questionsAndAnswers = new String[questionsCount][2];
         // Using java.util.Random is safe for gaming purposes
         Random random = new Random();
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < questionsCount; i++) {
             int number = random.nextInt(MAX_NUMBER - MIN_NUMBER + 1) + MIN_NUMBER;
             boolean isPrime = isPrime(number);
             String correctAnswer = isPrime ? "yes" : "no";
@@ -44,7 +45,8 @@ public class PrimeGame {
         }
 
         // Check divisors only up to the square root of the number
-        for (int i = 3; i * i <= number; i += 2) {
+        final int startDivisor = 3;
+        for (int i = startDivisor; i * i <= number; i += 2) {
             if (number % i == 0) {
                 return false;
             }
